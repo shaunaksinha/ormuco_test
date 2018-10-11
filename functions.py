@@ -26,17 +26,10 @@ def check_line_overlap(x1, x2, x3, x4):
         x3 = x4
         x4 = temp
     
-    line1=[x1,x2]
-    line2=[x3,x4]
-    
-    if all(i>=0 for i in line1) and all(i<=0 for i in line2) or all(i<=0 for i in line1) and all(i>=0 for i in line2): 
-        # lines lie in opposite halves: positive and negative quadrants
-        return False
+    if x3<x2 and x4>x1: # overlap conditions
+        return True
     else: 
-        if x3<x2 and x4>x1: # overlap conditions
-            return True
-        else: 
-            return False
+        return False
     
         
         
