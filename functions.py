@@ -5,6 +5,7 @@ Created on Thu Oct 11 11:15:50 2018
 
 @author: univac
 """
+import time
 def check_line_overlap(x1, x2, x3, x4):
     """
     QUESTION A: 
@@ -55,3 +56,25 @@ def compare_versions(version1, version2):
         return 1
     else:
         return -1
+    
+def test_lru_cache():
+    """ 
+    QUESTION C:
+    Function to test LruCache class
+    """
+    l = LruCache(5,10) # length of cache=5 and expiry time=10 secs
+    l.add_items(90)
+    l.add_items(87)
+    l.add_items(36)
+    l.add_items(50)
+    l.add_items(10)
+    print('Cache after adding 5 items')
+    print(l.cache)
+    print('Causing program to pause for 10 secs to demonstrate cache expiry')
+    time.sleep(10)
+    print('Adding item 36 which is already in cache')
+    l.add_items(36)
+    print(l.cache)
+    l.remove_expired_items()
+    print('cache after removing expired items')
+    print(l.cache)
